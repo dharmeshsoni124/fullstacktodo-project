@@ -64,7 +64,7 @@ const Signin = () => {
                 <div className="input-wrapper">
                     <input className="logininput2" placeholder="Password" type={visibility ? "text" : "password"} onChange={(e) => { setSignindata({ ...signindata, password: e.target.value }) }} />
                     <button className="btn" onClick={toggleBtn}>{
-                        // visibility ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
+                        
                     }</button>
                 </div>
                 <button className="signin" onClick={handleLogin}>Login</button>

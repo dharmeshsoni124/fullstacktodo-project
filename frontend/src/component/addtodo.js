@@ -1,22 +1,34 @@
 import "./addtodo.css";
-import {useState} from "react";
+import {useState,useEffect} from "react";
 
  
 
 
 const Addtodo=()=>{
-    const[addtodo,setAddtodo]=useState([]);
-    const[todo,setTodo]=useState=("")
-
-    const handleAddtodo=(e)=>{
-        setAddtodo(e.target.value);
-    }
-
-    const handleTodo=()=>{
-         e.preventDefault();
-         setTodo()
+    const Timer=()=>{
+        const[addtodo,setAddtodo]=useState([]);
+        // const[todo,setTodo]=useState=("")
         
+        const[second,setSecond]=useState("00");
+        const[minute,setMinute]=useState("00");
+    
+       
+   
+    
+    useEffect(()=>{
+    Timer =setInterval(()=>{
+        setSecond(second=second+1)
+     
+        if(second===59){
+             setMinute(minute+1);
+             setSecond(0);
+        }
+    },1000)
+    })
+    
     }
+   
+
 
     return(
         <div>
@@ -24,13 +36,22 @@ const Addtodo=()=>{
          <form>
             <div>
                 <label className="activity-label">Activity</label>
-                <input  className="activity" type="text"  onChange={handleAddtodo}/>
+                <input  className="activity" type="text"  />
 
             </div>
            
             
                 <div>
-                <button  onClick={handleTodo}className="add-to-do">Add ToDo</button>
+                <button  className="add-to-do">Add ToDo</button>
+                </div>
+                <div>
+                    <button  className="start">start</button>
+                    <button className="stop">stop</button>
+                    <button className="pause">pause</button>
+                    <button className="resume">resume</button>
+                   
+                  
+                    
                 </div>
             
                 
